@@ -27,3 +27,15 @@ grunt> dump out;
 
 
 
+
+grunt> petrol = load 'petrolproducts.txt' using PigStorage(',') as (dis:bytearray,dname:bytearray,brate:bytearray,srate:bytearray,vin:int,vout:int,year:int);
+grunt> grp = group petrol by dname;                                                                                                              
+gunt> for = foreach grp generate group,SUM(petrol.vout) as v;
+grunt> orderr = order for by v asec;
+grunt> l = limit orderr 1;   
+grunt> dump l;
+(shell,69266)
+
+
+
+
