@@ -9,3 +9,21 @@ grunt> dump out;
 (hindustan,71767)
 
 
+grunt> petrol = load 'petrolproducts.txt' using PigStorage(',') as (dis:bytearray,dname:bytearray,brate:bytearray,srate:bytearray,vin:int,vout:int,year:int);
+grunt> ord = order petrol by vout desc;                                                                                                                      
+grunt> grp = group l by dis;;                                                                                                                                
+grunt> out = foreach grp generate group,l.vout;                                                                                                              
+grunt> dump out;                                                                                                                                             
+(+E6O 9P1,{(895)})
+(+F6W 6H3,{(896)})
+(+J4M 4G3,{(895)})
+(+M6S 1P4,{(895)})
+(+N5Q 8E5,{(895)})
+(+O8A 6Z5,{(897)})
+(+O9P 9S3,{(897)})
+(+S8W 0P4,{(899)})
+(+T1A 9W4,{(899)})
+(+V8U 2T6,{(898)})
+
+
+
